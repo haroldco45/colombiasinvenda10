@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colombia Sin Venda — Día 10: 2° en Desplazados del Mundo</title>
+<meta name="description" content="8,6 millones de colombianos desplazados. Solo Sudán nos supera. Una maleta, el miedo y una tierra que nunca recuperarán.">
+<meta property="og:title" content="Colombia Sin Venda — Día 10: 2° en Desplazados del Mundo">
+<meta property="og:description" content="Familias enteras huyendo de noche. Tierras abandonadas. Comunidades destruidas. El crimen que nadie romantiza — pero la guerrilla causó.">
+<meta property="og:image" content="https://placehold.co/1200x630/0a0800/e8a020?text=2do+en+Desplazados+del+Mundo">
+<meta property="og:url" content="https://haroldco45.github.io/colombia-sin-venda/dia10">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0800">
+<link rel="manifest" href="#" id="manifest-link">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ocre:#e8a020;
+  --ocre-dim:#b87a10;
+  --ocre-s:rgba(232,160,32,0.1);
+  --tierra:#c4622a;
+  --verde-campo:#5a8a4a;
+  --cielo:#87ceeb;
+  --rojo:#e84040;
+  --fondo:#0a0800;
+  --panel:#120e00;
+  --panel2:#181200;
+  --borde:rgba(232,160,32,0.18);
+  --borde-f:rgba(232,160,32,0.45);
+  --crema:#faf4e0;
+  --texto:#c0a870;
+  --dim:#6a5830;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--fondo);color:var(--crema);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+
+/* ── INTRO ── */
+#intro{
+  position:fixed;inset:0;background:var(--fondo);z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1rem;padding:2rem;
+  animation:killI .5s ease 4s forwards;
+}
+.intro-maleta{
+  font-size:4rem;opacity:0;
+  animation:popIn .6s cubic-bezier(.34,1.56,.64,1) .3s forwards;
+  filter:drop-shadow(0 0 20px rgba(232,160,32,.5));
+}
+.intro-num{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:5rem;color:var(--ocre);line-height:1;
+  opacity:0;animation:fU .5s ease .9s forwards;
+  letter-spacing:-.02em;
+}
+.intro-label{
+  font-family:'JetBrains Mono',monospace;font-size:.58rem;
+  letter-spacing:.25em;color:var(--texto);
+  opacity:0;animation:fU .4s ease 1.4s forwards;
+  text-align:center;line-height:1.6;
+}
+.intro-sub{
+  font-family:'JetBrains Mono',monospace;font-size:.56rem;
+  letter-spacing:.2em;color:var(--ocre);
+  opacity:0;animation:fU .4s ease 1.9s forwards;
+}
+.intro-cita{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:.95rem;color:var(--texto);text-align:center;
+  max-width:300px;line-height:1.65;
+  opacity:0;animation:fU .5s ease 2.5s forwards;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.4);}to{opacity:1;transform:scale(1);}}
+@keyframes fU{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes killI{to{opacity:0;pointer-events:none;}}
+
+/* ── HEADER ── */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,8,0,.97);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--borde);
+  padding:.75rem 1.4rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.h-logo{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;}
+.h-logo em{color:var(--ocre);font-style:normal;}
+.h-dia{
+  font-family:'JetBrains Mono',monospace;font-size:.56rem;
+  color:var(--ocre);background:var(--ocre-s);
+  border:1px solid var(--borde-f);padding:.22rem .55rem;letter-spacing:.1em;
+}
+
+/* ── HERO ── */
+.hero{
+  min-height:90vh;display:flex;flex-direction:column;justify-content:center;
+  padding:3rem 1.4rem 3.5rem;position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 60% 10%,rgba(232,160,32,.07) 0%,transparent 50%),
+    radial-gradient(ellipse at 10% 90%,rgba(196,98,42,.06) 0%,transparent 50%);
+  pointer-events:none;
+}
+/* camino que se pierde */
+.hero-camino{
+  position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:linear-gradient(to top, rgba(196,98,42,.04) 0%, transparent 100%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  color:var(--ocre);letter-spacing:.2em;margin-bottom:1.2rem;
+  opacity:0;animation:fU .5s ease 4.2s forwards;
+}
+.hero-title{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:clamp(2.8rem,10vw,6.5rem);line-height:.92;
+  margin-bottom:1.8rem;
+  opacity:0;animation:fU .7s ease 4.4s forwards;
+}
+.hero-title .tO{color:var(--ocre);}
+.hero-title .tT{color:var(--tierra);}
+.hero-desc{
+  font-size:1.05rem;font-weight:300;line-height:1.8;
+  color:var(--texto);max-width:500px;margin-bottom:2.2rem;
+  opacity:0;animation:fU .6s ease 4.6s forwards;
+}
+.hero-ranking{
+  display:flex;flex-direction:column;gap:.6rem;
+  opacity:0;animation:fU .5s ease 4.8s forwards;
+}
+.rk-row{
+  display:flex;align-items:center;gap:.9rem;
+  background:var(--panel2);border-radius:4px;
+  padding:.8rem 1rem;border-left:3px solid var(--borde);
+  transition:border-color .2s;
+}
+.rk-row.col{border-left-color:var(--ocre);}
+.rk-pos{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:1.8rem;color:rgba(232,160,32,.25);
+  line-height:1;width:2rem;flex-shrink:0;text-align:center;
+}
+.rk-row.col .rk-pos{color:var(--ocre);}
+.rk-pais{
+  font-family:'DM Sans',sans-serif;font-weight:700;
+  font-size:.95rem;color:var(--crema);flex:1;
+}
+.rk-num{
+  font-family:'JetBrains Mono',monospace;font-size:.65rem;
+  color:var(--texto);text-align:right;
+}
+.rk-row.col .rk-num{color:var(--ocre);}
+.rk-flag{font-size:1.1rem;flex-shrink:0;}
+
+/* ── RETO ── */
+.reto-strip{
+  background:rgba(232,160,32,.03);
+  border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);
+  padding:1.1rem 1.4rem;
+}
+.reto-tag{font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--dim);letter-spacing:.15em;margin-bottom:.6rem;}
+.reto-dots{display:flex;gap:4px;flex-wrap:wrap;}
+.dot{width:14px;height:14px;border-radius:2px;background:rgba(255,255,255,.05);}
+.dot.done{background:rgba(232,160,32,.45);}
+.dot.hoy{background:var(--ocre);box-shadow:0 0 10px rgba(232,160,32,.55);}
+
+/* ── SECCIONES ── */
+.sec{padding:3.2rem 1.4rem;position:relative;z-index:1;}
+.sec-alt{background:var(--panel);}
+.sec-tag{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--ocre);letter-spacing:.18em;margin-bottom:.5rem;}
+.sec-title{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:clamp(2rem,7vw,3rem);line-height:1.02;
+  color:var(--crema);margin-bottom:1.8rem;
+}
+.sec-title em{color:var(--ocre);font-style:italic;}
+
+/* ── CIFRAS GRID ── */
+.cifras-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.cc{
+  background:var(--panel2);border-radius:4px;
+  padding:1.3rem 1rem;
+  border-top:3px solid var(--ocre);
+  transition:transform .2s;
+}
+.cc:hover{transform:translateY(-3px);}
+.cc.tierra{border-top-color:var(--tierra);}
+.cc.rojo{border-top-color:var(--rojo);}
+.cc.verde{border-top-color:var(--verde-campo);}
+.cc-num{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:clamp(1.8rem,6vw,2.4rem);
+  color:var(--ocre);line-height:1;margin-bottom:.4rem;
+}
+.cc.tierra .cc-num{color:var(--tierra);}
+.cc.rojo .cc-num{color:var(--rojo);}
+.cc.verde .cc-num{color:var(--verde-campo);}
+.cc-label{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:var(--dim);letter-spacing:.05em;line-height:1.5;}
+
+/* ── MALETA ANIMADA - contador días ── */
+.maleta-sec{
+  background:var(--panel2);border:1px solid var(--borde);
+  border-radius:4px;padding:1.4rem;margin-bottom:1.5rem;
+  text-align:center;
+}
+.ms-label{
+  font-family:'JetBrains Mono',monospace;font-size:.58rem;
+  color:var(--dim);letter-spacing:.15em;margin-bottom:.8rem;
+}
+.ms-emoji{font-size:3rem;margin-bottom:.6rem;display:block;animation:maleRock 2s ease infinite;}
+@keyframes maleRock{
+  0%,100%{transform:rotate(-3deg);}
+  50%{transform:rotate(3deg);}
+}
+.ms-num{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:2.8rem;color:var(--ocre);line-height:1;margin-bottom:.3rem;
+}
+.ms-sub{
+  font-family:'JetBrains Mono',monospace;font-size:.58rem;
+  color:var(--texto);letter-spacing:.1em;line-height:1.6;
+}
+.ms-nota{
+  font-size:.88rem;font-style:italic;
+  color:var(--dim);margin-top:.8rem;line-height:1.6;
+}
+
+/* ── LÍNEA DE TIEMPO ── */
+.tl{position:relative;padding-left:1.5rem;}
+.tl::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--ocre),rgba(232,160,32,.1));
+}
+.tl-item{position:relative;padding:0 0 2rem 1.2rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-dot{
+  position:absolute;left:-1.87rem;top:4px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--ocre);box-shadow:0 0 8px rgba(232,160,32,.5);
+}
+.tl-dot.pico{background:var(--rojo);box-shadow:0 0 12px rgba(232,64,64,.6);}
+.tl-dot.baja{background:var(--verde-campo);box-shadow:0 0 8px rgba(90,138,74,.5);}
+.tl-año{
+  font-family:'JetBrains Mono',monospace;font-size:.75rem;
+  color:var(--ocre);letter-spacing:.1em;margin-bottom:.3rem;
+  font-weight:700;
+}
+.tl-dot.pico+.tl-año{color:var(--rojo);}
+.tl-dot.baja+.tl-año{color:var(--verde-campo);}
+.tl-num{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:1.8rem;color:var(--crema);line-height:1;margin-bottom:.3rem;
+}
+.tl-desc{font-size:.9rem;font-weight:300;color:var(--texto);line-height:1.65;}
+.tl-tag{
+  display:inline-block;margin-top:.5rem;
+  font-family:'JetBrains Mono',monospace;font-size:.54rem;
+  color:var(--ocre);background:var(--ocre-s);
+  border:1px solid var(--borde);padding:.18rem .5rem;
+  border-radius:2px;letter-spacing:.08em;
+}
+
+/* ── LO QUE PIERDEN ── */
+.pierde-list{display:flex;flex-direction:column;gap:.8rem;}
+.pierde{
+  background:var(--panel2);border-radius:4px;
+  padding:1rem 1.2rem;
+  border-left:3px solid var(--tierra);
+  display:flex;gap:.9rem;align-items:flex-start;
+}
+.pierde-emoji{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+.pierde-titulo{
+  font-family:'DM Sans',sans-serif;font-weight:700;
+  font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--crema);margin-bottom:.25rem;
+}
+.pierde-desc{font-size:.88rem;font-weight:300;line-height:1.65;color:var(--texto);}
+.pierde-dato{
+  font-family:'JetBrains Mono',monospace;font-size:.56rem;
+  color:var(--ocre);margin-top:.4rem;letter-spacing:.05em;
+}
+
+/* ── TESTIMONIOS ── */
+.test-list{display:flex;flex-direction:column;gap:1.1rem;}
+.test{
+  background:var(--panel2);border-radius:4px;
+  padding:1.3rem 1.2rem;
+  border-left:3px solid var(--ocre);
+  position:relative;overflow:hidden;
+}
+.test::after{
+  content:'"';
+  position:absolute;bottom:-.5rem;right:.8rem;
+  font-family:'Fraunces',serif;
+  font-size:6rem;color:rgba(232,160,32,.06);line-height:1;
+}
+.test-quien{
+  font-family:'DM Sans',sans-serif;font-weight:700;
+  font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--crema);margin-bottom:.2rem;
+}
+.test-meta{
+  font-family:'JetBrains Mono',monospace;font-size:.54rem;
+  color:var(--ocre);letter-spacing:.1em;margin-bottom:.6rem;
+}
+.test-txt{
+  font-family:'Fraunces',serif;font-size:.95rem;
+  font-style:italic;line-height:1.75;color:var(--texto);
+}
+
+/* ── CONFINAMIENTO ── */
+.conf-box{
+  background:rgba(232,64,64,.07);
+  border:1px solid rgba(232,64,64,.25);
+  border-radius:4px;padding:1.4rem;
+}
+.conf-titulo{
+  font-family:'DM Sans',sans-serif;font-weight:700;
+  font-size:1rem;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--rojo);margin-bottom:.7rem;
+}
+.conf-stats{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1rem;}
+.cs{background:rgba(232,64,64,.05);border-radius:3px;padding:.8rem;text-align:center;}
+.cs-n{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:1.6rem;color:var(--rojo);line-height:1;margin-bottom:.25rem;
+}
+.cs-l{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:var(--dim);line-height:1.4;}
+.conf-nota{font-size:.9rem;font-style:italic;font-weight:300;color:var(--texto);line-height:1.7;}
+
+/* ── BARRAS RESPONSABLES ── */
+.resp-bars{display:flex;flex-direction:column;gap:1rem;}
+.rb-row{}
+.rb-head{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.05em;margin-bottom:.45rem;}
+.rb-name{color:var(--crema);}
+.rb-pct{color:var(--ocre);}
+.rb-track{height:7px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;}
+.rb-fill{height:100%;border-radius:2px;width:0;transition:width 1.6s cubic-bezier(.16,1,.3,1);}
+.fa{background:var(--ocre);}
+.fb{background:var(--tierra);}
+.fc{background:#666;}
+.rb-sub{font-family:'JetBrains Mono',monospace;font-size:.54rem;color:var(--dim);margin-top:.3rem;letter-spacing:.04em;}
+
+/* ── HOY CATATUMBO ── */
+.catatu-box{
+  background:rgba(232,160,32,.06);
+  border:1px solid var(--borde-f);
+  border-radius:4px;padding:1.4rem;
+}
+.ct-titulo{
+  font-family:'DM Sans',sans-serif;font-weight:700;
+  font-size:1rem;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--ocre);margin-bottom:.4rem;
+}
+.ct-subtitulo{
+  font-family:'JetBrains Mono',monospace;font-size:.56rem;
+  color:var(--dim);letter-spacing:.1em;margin-bottom:.7rem;
+}
+.ct-stats{display:flex;gap:1.2rem;margin-bottom:.9rem;flex-wrap:wrap;}
+.ct-stat{}
+.ct-n{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:1.6rem;color:var(--ocre);line-height:1;
+}
+.ct-l{font-family:'JetBrains Mono',monospace;font-size:.52rem;color:var(--dim);letter-spacing:.06em;}
+.ct-nota{font-size:.9rem;font-style:italic;font-weight:300;color:var(--texto);line-height:1.7;}
+
+/* ── REFLEXIÓN ── */
+.ref-sec{
+  padding:3.5rem 1.4rem;background:var(--panel);
+  text-align:center;position:relative;z-index:1;
+}
+.ref-quote{
+  font-family:'Fraunces',serif;font-size:clamp(1.1rem,4vw,1.45rem);
+  font-style:italic;line-height:1.8;color:var(--crema);
+  max-width:460px;margin:0 auto 1.2rem;
+}
+.ref-cite{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--ocre);letter-spacing:.15em;}
+
+/* ── CTA ── */
+.cta-sec{padding:3rem 1.4rem;text-align:center;position:relative;z-index:1;}
+.cta-title{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:2rem;color:var(--crema);margin-bottom:.7rem;
+}
+.cta-body{
+  font-size:.92rem;font-weight:300;font-style:italic;
+  color:var(--texto);max-width:360px;margin:0 auto 2rem;line-height:1.65;
+}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:#25D366;color:white;
+  font-family:'JetBrains Mono',monospace;font-size:.72rem;
+  letter-spacing:.08em;padding:.9rem 1.8rem;
+  border-radius:4px;border:none;cursor:pointer;text-decoration:none;
+  transition:transform .15s,box-shadow .15s;margin-bottom:1.5rem;
+}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3);}
+.nav-dias{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.08em;}
+.nav-dias span{color:var(--ocre);}
+
+/* ── INSTALL ── */
+#install-banner{
+  position:fixed;bottom:0;left:0;right:0;background:var(--panel);
+  border-top:2px solid var(--ocre);padding:1rem 1.4rem;
+  display:none;align-items:center;justify-content:space-between;gap:1rem;z-index:1000;
+}
+#install-banner.on{display:flex;}
+.ib-txt{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--crema);line-height:1.5;}
+.ib-txt strong{color:var(--ocre);display:block;}
+.btn-ib{background:var(--ocre-dim);color:white;border:none;border-radius:3px;
+  font-family:'JetBrains Mono',monospace;font-size:.62rem;
+  padding:.55rem .9rem;cursor:pointer;white-space:nowrap;flex-shrink:0;}
+.btn-x{background:none;border:none;color:var(--dim);font-size:1.2rem;cursor:pointer;flex-shrink:0;}
+
+/* ── FOOTER ── */
+footer{
+  padding:2rem 1.4rem;text-align:center;
+  border-top:1px solid var(--borde);
+  font-family:'JetBrains Mono',monospace;font-size:.54rem;
+  color:var(--dim);letter-spacing:.1em;line-height:1.9;
+  position:relative;z-index:1;
+}
+footer strong{color:var(--ocre);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s;}
+.reveal.on{opacity:1;transform:none;}
+.counter{display:inline;}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-maleta">🧳</div>
+  <div class="intro-num">8,6M</div>
+  <div class="intro-label">COLOMBIANOS<br>DESPLAZADOS A LA FUERZA</div>
+  <div class="intro-sub">COLOMBIA SIN VENDA · DÍA 10 / 20</div>
+  <p class="intro-cita">"Una maleta pequeña. El miedo enorme. Una tierra que nunca volvieron a ver."</p>
+</div>
+
+<!-- INSTALL -->
+<div id="install-banner">
+  <div class="ib-txt"><strong>📲 Instala Colombia Sin Venda</strong>20 días · offline</div>
+  <button class="btn-ib" id="btn-inst">INSTALAR</button>
+  <button class="btn-x" id="btn-x">✕</button>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="h-logo">COLOMBIA <em>SIN VENDA</em></div>
+  <div class="h-dia">DÍA 10 / 20</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-camino"></div>
+
+  <p class="hero-eyebrow">🧳 Desplazamiento forzado · La herida más grande</p>
+  <h1 class="hero-title">
+    <span class="tO">2°</span> EN<br>
+    DESPLAZADOS<br>
+    DEL <span class="tT">MUNDO</span>
+  </h1>
+  <p class="hero-desc">
+    Solo Sudán —en plena guerra civil— supera a Colombia en desplazados internos.
+    8,6 millones de colombianos han tenido que abandonar sus hogares, sus tierras
+    y sus vidas por la violencia armada. En 2025, siguen llegando más.
+  </p>
+
+  <!-- RANKING MUNDIAL -->
+  <div class="hero-ranking">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.56rem;color:var(--dim);letter-spacing:.15em;margin-bottom:.5rem;">
+      RANKING MUNDIAL DESPLAZADOS INTERNOS · IDMC 2025
+    </div>
+    <div class="rk-row">
+      <div class="rk-pos">1</div>
+      <span class="rk-flag">🇸🇩</span>
+      <div class="rk-pais">Sudán</div>
+      <div class="rk-num">9,1 millones</div>
+    </div>
+    <div class="rk-row col">
+      <div class="rk-pos">2</div>
+      <span class="rk-flag">🇨🇴</span>
+      <div class="rk-pais">Colombia</div>
+      <div class="rk-num">7,2 millones</div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-pos">3</div>
+      <span class="rk-flag">🇸🇾</span>
+      <div class="rk-pais">Siria</div>
+      <div class="rk-num">6,0 millones</div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-pos">4</div>
+      <span class="rk-flag">🇾🇪</span>
+      <div class="rk-pais">Yemen</div>
+      <div class="rk-num">4,8 millones</div>
+    </div>
+    <div class="rk-row">
+      <div class="rk-pos">5</div>
+      <span class="rk-flag">🇦🇫</span>
+      <div class="rk-pais">Afganistán</div>
+      <div class="rk-num">4,4 millones</div>
+    </div>
+  </div>
+</section>
+
+<!-- RETO -->
+<div class="reto-strip reveal">
+  <div class="reto-tag">▶ RETO 20 DÍAS DE VERDAD — Colombia Sin Venda</div>
+  <div class="reto-dots" id="dots"></div>
+</div>
+
+<!-- CIFRAS -->
+<section class="sec reveal">
+  <p class="sec-tag">// 01 — las cifras</p>
+  <h2 class="sec-title">EL PESO<br><em>de los números</em></h2>
+
+  <div class="maleta-sec">
+    <div class="ms-label">⏱ REGISTRO ÚNICO DE VÍCTIMAS — ACUMULADO HASTA 2024</div>
+    <span class="ms-emoji">🧳</span>
+    <div class="ms-num"><span class="counter" data-target="8630545">0</span></div>
+    <div class="ms-sub">colombianos desplazados a la fuerza desde 1985</div>
+    <p class="ms-nota">Si fueran una ciudad, sería la más grande de Colombia — más grande que Bogotá.</p>
+  </div>
+
+  <div class="cifras-grid">
+    <div class="cc">
+      <div class="cc-num">191.000</div>
+      <div class="cc-label">Personas desplazadas en Colombia solo en 2024 · ACNUR</div>
+    </div>
+    <div class="cc rojo">
+      <div class="cc-num">118.100</div>
+      <div class="cc-label">Afectadas por confinamiento en 2024 — no pueden salir de sus veredas</div>
+    </div>
+    <div class="cc tierra">
+      <div class="cc-num">6,9M</div>
+      <div class="cc-label">Desplazados internos en 2023 según ACNUR · Tercer país ese año</div>
+    </div>
+    <div class="cc verde">
+      <div class="cc-num">51%</div>
+      <div class="cc-label">De los desplazados son mujeres — la mayoría, cabezas de hogar solas</div>
+    </div>
+    <div class="cc">
+      <div class="cc-num">1,6M</div>
+      <div class="cc-label">Nuevos desplazados DESPUÉS del acuerdo de paz de 2016 · ACNUR</div>
+    </div>
+    <div class="cc rojo">
+      <div class="cc-num">63.000</div>
+      <div class="cc-label">Personas huyeron del Catatumbo en enero 2025 · Una crisis en curso</div>
+    </div>
+  </div>
+</section>
+
+<!-- CRONOLOGÍA -->
+<section class="sec sec-alt reveal">
+  <p class="sec-tag">// 02 — cómo creció el drama</p>
+  <h2 class="sec-title">40 AÑOS<br><em>de éxodo</em></h2>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-año">1985 — INICIO DEL REGISTRO</div>
+      <div class="tl-num">Decenas de miles</div>
+      <div class="tl-desc">El Registro Único de Víctimas comienza desde este año. Pero el desplazamiento forzado existe desde mucho antes. La violencia de La Violencia (1948–1958) ya había generado millones de migrantes internos sin nombre ni cifra oficial.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot pico"></div>
+      <div class="tl-año">1997–2002 — EL PICO HISTÓRICO</div>
+      <div class="tl-num">+400.000 / año</div>
+      <div class="tl-desc">El peor período. Las FARC y los paramilitares se disputan territorios con tomas, masacres y amenazas masivas. Comunidades enteras huyen en una noche. Colombia supera a Siria en desplazados internos y se vuelve el primer país del mundo.</div>
+      <span class="tl-tag">⚠ Colombia: 1° en desplazados del mundo en este período</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-año">2003–2010 — POLÍTICA DE SEGURIDAD</div>
+      <div class="tl-num">Reducción gradual</div>
+      <div class="tl-desc">La presión militar reduce los desplazamientos masivos. Pero los individuales siguen. Familias que huyen de noche, solas, sin que nadie lo registre. El subregistro es enorme.</div>
+      <span class="tl-tag">Reducción de masivos pero no de individuales</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot baja"></div>
+      <div class="tl-año">2016 — EL ACUERDO DE PAZ</div>
+      <div class="tl-num">Esperanza breve</div>
+      <div class="tl-desc">La firma con las FARC reduce temporalmente los desplazamientos. Muchas familias esperan poder regresar. Algunas lo intentan. Muchas encuentran que grupos disidentes ya ocuparon sus territorios.</div>
+      <span class="tl-tag">✓ La cifra baja — pero no desaparece</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot pico"></div>
+      <div class="tl-año">2018–2024 — LA REACTIVACIÓN</div>
+      <div class="tl-num">1,6M nuevos</div>
+      <div class="tl-desc">Con el vacío dejado por las FARC, disidencias, ELN y Clan del Golfo disputan territorios. El desplazamiento vuelve a crecer. En 2024: 191.000 nuevos desplazados y 118.000 confinados.</div>
+      <span class="tl-tag">⚠ Reactivación post-paz — sigue en 2025</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot pico"></div>
+      <div class="tl-año">ENERO 2025 — CATATUMBO</div>
+      <div class="tl-num">63.000 huyen</div>
+      <div class="tl-desc">El ELN desata una ofensiva en la región del Catatumbo (Norte de Santander). En días, 63.000 personas huyen hacia Ocaña, Cúcuta, Tibú y Hacarí. La peor crisis humanitaria reciente en Colombia.</div>
+      <span class="tl-tag">⚠ Hoy — la guerra no terminó</span>
+    </div>
+  </div>
+</section>
+
+<!-- LO QUE PIERDEN -->
+<section class="sec reveal">
+  <p class="sec-tag">// 03 — lo que les arrancan</p>
+  <h2 class="sec-title">UNA VIDA<br><em>que no vuelve</em></h2>
+
+  <div class="pierde-list">
+    <div class="pierde">
+      <div class="pierde-emoji">🌾</div>
+      <div>
+        <div class="pierde-titulo">La tierra</div>
+        <div class="pierde-desc">Años de trabajo, de labranza, de sudor en una parcela que era suya. La dejan en una noche. Los grupos armados la ocupan, la usan para coca o simplemente impiden que alguien regrese. En Colombia hay 8 millones de hectáreas despojadas o abandonadas.</div>
+        <div class="pierde-dato">▶ 8 millones de hectáreas abandonadas o despojadas · Unidad de Restitución de Tierras</div>
+      </div>
+    </div>
+    <div class="pierde">
+      <div class="pierde-emoji">🏚️</div>
+      <div>
+        <div class="pierde-titulo">El hogar</div>
+        <div class="pierde-desc">La casa construida ladrillo a ladrillo. Los recuerdos guardados en cajones. Los vecinos de toda la vida. Todo queda atrás. En las ciudades, muchos terminan en barrios de invasión en las periferias más pobres, sin servicios ni seguridad.</div>
+        <div class="pierde-dato">▶ Muchos desplazados terminan en Soacha, Tumaco, Quibdó — periferia de las ciudades</div>
+      </div>
+    </div>
+    <div class="pierde">
+      <div class="pierde-emoji">📚</div>
+      <div>
+        <div class="pierde-titulo">La educación</div>
+        <div class="pierde-desc">Los niños interrumpen el colegio. Los jóvenes abandonan proyectos de vida. Las cifras de deserción escolar entre familias desplazadas son el doble del promedio nacional. El desplazamiento rompe la cadena de movilidad social.</div>
+        <div class="pierde-dato">▶ Deserción escolar en familias desplazadas: el doble del promedio nacional · DANE</div>
+      </div>
+    </div>
+    <div class="pierde">
+      <div class="pierde-emoji">💼</div>
+      <div>
+        <div class="pierde-titulo">El trabajo</div>
+        <div class="pierde-desc">Campesinos que saben cultivar arroz llegan a Bogotá sin habilidades urbanas. La tasa de desempleo entre la población desplazada triplica el promedio. Muchos caen en economías informales precarias o redes criminales por necesidad.</div>
+        <div class="pierde-dato">▶ Desempleo entre desplazados: 3 veces el promedio nacional · IV Encuesta CODHES 2023</div>
+      </div>
+    </div>
+    <div class="pierde">
+      <div class="pierde-emoji">👨‍👩‍👧</div>
+      <div>
+        <div class="pierde-titulo">La familia y la comunidad</div>
+        <div class="pierde-desc">Abuelos que no pueden huir y quedan solos. Familias que se separan en la huida. Comunidades indígenas y afrocolombianas que pierden sus territorios ancestrales — con ellos, su cultura, su lengua y su identidad.</div>
+        <div class="pierde-dato">▶ 87 pueblos indígenas en riesgo de desaparición física y cultural · Defensoría del Pueblo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="sec sec-alt reveal">
+  <p class="sec-tag">// 04 — ellos lo vivieron</p>
+  <h2 class="sec-title">SUS<br><em>palabras</em></h2>
+
+  <div class="test-list">
+    <div class="test">
+      <div class="test-quien">Mujer desplazada de Argelia, Valle</div>
+      <div class="test-meta">🧳 FARC · 2002 · Llegó a Cali con 4 hijos</div>
+      <p class="test-txt">
+        "Las fuerzas armadas ilegales se tomaron el pueblo de Argelia totalmente.
+        Nos dieron dos horas para salir. Cogí lo que pude — los documentos,
+        algo de ropa, a mis hijos. La casa, los animales, todo quedó allá.
+        Llegué a Cali sin conocer a nadie, sin plata, sin nada."
+      </p>
+    </div>
+    <div class="test">
+      <div class="test-quien">Comunidad indígena del Chocó</div>
+      <div class="test-meta">⛓ ELN · 2023 · Confinamiento de 3 meses</div>
+      <p class="test-txt">
+        "No podemos ir al río a pescar. No podemos ir a la chagra.
+        Si alguien sale sin permiso, lo amenazan o lo matan.
+        El confinamiento es peor que el desplazamiento —
+        te quedas atrapado en tu propio territorio sin poder vivir."
+      </p>
+    </div>
+    <div class="test">
+      <div class="test-quien">Familia del Catatumbo</div>
+      <div class="test-meta">🔥 ELN · Enero 2025 · Crisis humanitaria activa</div>
+      <p class="test-txt">
+        "Salimos de noche. Solo escuchábamos disparos.
+        Agarré a mis hijos y corrimos. No llevamos nada.
+        Llevamos tres semanas en un albergue en Cúcuta.
+        No sabemos si nuestra casa sigue en pie."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONFINAMIENTO -->
+<section class="sec reveal">
+  <p class="sec-tag">// 05 — el hermano olvidado</p>
+  <h2 class="sec-title">EL<br><em>CONFINAMIENTO</em></h2>
+
+  <div class="conf-box">
+    <div class="conf-titulo">⚠️ Presos en su propia tierra</div>
+    <div class="conf-stats">
+      <div class="cs">
+        <div class="cs-n">118.100</div>
+        <div class="cs-l">Personas confinadas en Colombia solo en 2024 · ACNUR</div>
+      </div>
+      <div class="cs">
+        <div class="cs-n">91.400</div>
+        <div class="cs-l">Afectados en Catatumbo desde enero 2025 · Cifra en curso</div>
+      </div>
+    </div>
+    <p class="conf-nota">
+      El confinamiento ocurre cuando los grupos armados <strong style="color:var(--crema);">impiden a las comunidades moverse</strong>
+      bajo amenaza de muerte. No pueden ir al médico, al mercado ni a la escuela.
+      Es una forma de control territorial que no genera titulares pero destruye
+      la vida cotidiana de miles de familias colombianas, especialmente
+      comunidades indígenas y afrocolombianas en el Pacífico y la Amazonia.
+    </p>
+  </div>
+</section>
+
+<!-- RESPONSABLES -->
+<section class="sec sec-alt reveal">
+  <p class="sec-tag">// 06 — quiénes los expulsan</p>
+  <h2 class="sec-title">LOS QUE<br><em>expulsan</em></h2>
+
+  <div class="resp-bars">
+    <div class="rb-row">
+      <div class="rb-head"><span class="rb-name">Guerrillas (FARC/ELN/Disidencias)</span><span class="rb-pct">~50%</span></div>
+      <div class="rb-track"><div class="rb-fill fa" data-w="50"></div></div>
+      <div class="rb-sub">Principal actor generador de desplazamiento histórico · CNMH</div>
+    </div>
+    <div class="rb-row">
+      <div class="rb-head"><span class="rb-name">Paramilitares / Grupos sucesores</span><span class="rb-pct">~35%</span></div>
+      <div class="rb-track"><div class="rb-fill fb" data-w="35"></div></div>
+      <div class="rb-sub">Clan del Golfo y grupos herederos de las AUC siguen generando desplazamiento</div>
+    </div>
+    <div class="rb-row">
+      <div class="rb-head"><span class="rb-name">Cruce de fuego / Sin identificar</span><span class="rb-pct">~15%</span></div>
+      <div class="rb-track"><div class="rb-fill fc" data-w="15"></div></div>
+      <div class="rb-sub">Fuego cruzado, confrontaciones y acciones de actores mixtos</div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.3rem;background:var(--ocre-s);border:1px solid var(--borde);border-radius:4px;padding:1.2rem;">
+    <p style="font-size:.9rem;font-style:italic;font-weight:300;color:var(--texto);line-height:1.75;">
+      <strong style="color:var(--crema);font-style:normal;">El discurso de la guerrilla habla de "defender el territorio".</strong>
+      Pero las cifras muestran que son el principal actor generador de 
+      desplazamiento en Colombia. No defienden el territorio — 
+      lo vacían de sus habitantes para controlarlo.
+    </p>
+  </div>
+</section>
+
+<!-- CATATUMBO HOY -->
+<section class="sec reveal">
+  <p class="sec-tag">// 07 — la crisis que sigue</p>
+  <h2 class="sec-title">CATATUMBO<br><em>Hoy, 2025</em></h2>
+
+  <div class="catatu-box">
+    <div class="ct-titulo">🔴 Crisis activa — Norte de Santander</div>
+    <div class="ct-subtitulo">DESDE EL 16 DE ENERO DE 2025 · ACNUR</div>
+    <div class="ct-stats">
+      <div class="ct-stat">
+        <div class="ct-n">63.000</div>
+        <div class="ct-l">Personas desplazadas</div>
+      </div>
+      <div class="ct-stat">
+        <div class="ct-n">91.400</div>
+        <div class="ct-l">Afectadas en total</div>
+      </div>
+      <div class="ct-stat">
+        <div class="ct-n">ELN</div>
+        <div class="ct-l">Responsable principal</div>
+      </div>
+    </div>
+    <p class="ct-nota">
+      En cuestión de días, el ELN desató una ofensiva que vació comunidades enteras.
+      Las personas huyeron hacia Ocaña, Cúcuta, Tibú y Hacarí.
+      Esto no ocurrió en 1998 ni en 2002 — ocurrió en <strong style="color:var(--crema);">enero de 2025</strong>,
+      nueve años después del "acuerdo de paz".
+      El ELN nunca firmó ese acuerdo. Y lo están demostrando.
+    </p>
+  </div>
+</section>
+
+<!-- REFLEXIÓN -->
+<section class="ref-sec reveal">
+  <blockquote class="ref-quote">
+    "8,6 millones de colombianos que tuvieron que elegir
+    entre su vida y su tierra.
+    Eso no es un número — es el país entero huyendo de sí mismo.
+    Y detrás de la mayoría de esas huidas, hay un grupo armado
+    que dice defender a ese mismo pueblo."
+  </blockquote>
+  <p class="ref-cite">— COLOMBIA SIN VENDA · Día 10 de 20</p>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec reveal">
+  <h2 class="cta-title">Una historia<br><em>que todos deben saber</em></h2>
+  <p class="cta-body">
+    Comparte este día con alguien que piense que el desplazamiento en Colombia
+    es historia del pasado. En 2025 sigue ocurriendo, cada semana.
+  </p>
+  <a id="btn-wa" class="btn-wa" href="#" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Compartir en WhatsApp
+  </a>
+  <div class="nav-dias">
+    ← DÍA 09: Héroes sin Capa · PRÓXIMO → <span>DÍA 11: Las Masacres que No Salen en las Canciones</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Desarrollada por <strong>Vibras Positivas HM</strong> — Derechos de Autor Reservados<br>
+  Caucasia, Antioquia · Colombia · 2026<br>
+  Fuentes: ACNUR · IDMC/NRC · UARIV · El Colombiano · El Tiempo · Verdad Abierta · IV Encuesta CODHES 2023
+</footer>
+
+<!-- MANIFEST -->
+<script>
+const m={name:"Colombia Sin Venda",short_name:"Sin Venda",
+description:"20 días de verdad sobre el conflicto armado colombiano",
+start_url:"./",display:"standalone",
+background_color:"#0a0800",theme_color:"#e8a020",
+icons:[
+  {src:"https://placehold.co/192x192/e8a020/0a0800?text=CSV",sizes:"192x192",type:"image/png"},
+  {src:"https://placehold.co/512x512/e8a020/0a0800?text=CSV",sizes:"512x512",type:"image/png"}
+]};
+document.getElementById('manifest-link').href=URL.createObjectURL(new Blob([JSON.stringify(m)],{type:'application/json'}));
+</script>
+<script>
+if('serviceWorker' in navigator){
+  const sw=`const C='csv-dia10-v1';
+  self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll([location.href]))));
+  self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));`;
+  navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw],{type:'application/javascript'}))).catch(()=>{});
+}
+</script>
+
+<script>
+// DOTS
+const dotsEl=document.getElementById('dots');
+for(let i=1;i<=20;i++){
+  const d=document.createElement('div');
+  d.className='dot'+(i<10?' done':'')+(i===10?' hoy':'');
+  dotsEl.appendChild(d);
+}
+
+// REVEAL
+const ro=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');ro.unobserve(x.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// COUNTER
+function animCount(el,target,dur=2200){
+  let started=false;
+  const co=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting&&!started){
+      started=true;
+      const t0=performance.now();
+      const upd=now=>{
+        const p=Math.min((now-t0)/dur,1);
+        const e2=1-Math.pow(1-p,3);
+        el.textContent=Math.floor(e2*target).toLocaleString('es-CO');
+        if(p<1)requestAnimationFrame(upd);
+      };
+      requestAnimationFrame(upd);
+    }
+  },{threshold:.5});
+  co.observe(el);
+}
+document.querySelectorAll('.counter').forEach(el=>{
+  animCount(el,parseInt(el.dataset.target));
+});
+
+// BARRAS
+const bo=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting){
+      setTimeout(()=>x.target.style.width=x.target.dataset.w+'%',200);
+      bo.unobserve(x.target);
+    }
+  });
+},{threshold:.3});
+document.querySelectorAll('.rb-fill').forEach(el=>bo.observe(el));
+
+// INSTALL
+let dp;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;document.getElementById('install-banner').classList.add('on');});
+document.getElementById('btn-inst').addEventListener('click',async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;document.getElementById('install-banner').classList.remove('on');});
+document.getElementById('btn-x').addEventListener('click',()=>document.getElementById('install-banner').classList.remove('on'));
+
+// WHATSAPP
+document.getElementById('btn-wa').href='https://wa.me/?text='+encodeURIComponent(
+  '🇨🇴 *COLOMBIA SIN VENDA — Día 10*\n'+
+  '"2° en Desplazados del Mundo"\n\n'+
+  '8,6 millones de colombianos desplazados. Solo Sudán nos supera.\n'+
+  '191.000 nuevos desplazados en 2024. 63.000 en el Catatumbo en enero 2025.\n'+
+  'Incluye ranking mundial, línea de tiempo y testimonios reales.\n\n'+
+  '📲 La guerra que no terminó — comparte con quien lo necesite.'
+);
+</script>
+</body>
+</html>
